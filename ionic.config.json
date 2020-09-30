@@ -1,0 +1,7 @@
+{
+  "name": "decide-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

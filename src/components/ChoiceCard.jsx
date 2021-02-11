@@ -9,7 +9,9 @@ import {
   IonIcon,
   IonButton,
   IonButtons,
-  IonImg, IonTitle, IonAvatar
+  IonImg,
+  IonTitle, 
+  IonAvatar
 } from '@ionic/react';
 import { triangle } from 'ionicons/icons';
 import React from 'react';
@@ -17,7 +19,7 @@ import netflix from '../assets/iconfinder_64-netflix_4202092.svg'
 import hulu from '../assets/icons8-hulu.svg'
 import disney from '../assets/Disney+_logo.svg'
 
-const ChoiceCard = ({ title, categories, description, img, platform, runtime }) => {
+const ChoiceCard = ({ title, categories, description, img, location, runtime }) => {
 
   const styles = {
     card: {
@@ -42,20 +44,20 @@ const ChoiceCard = ({ title, categories, description, img, platform, runtime }) 
   const icons = {
     netflix,
     hulu,
-    disney
+    disney,
+    undefined: ''
   }
 
-  console.log(icons[platform.toLowerCase()])
+  console.log(icons[location.toLowerCase()])
   return (
     <IonCard style={styles.card}>
       <IonCardHeader>
-
         <IonToolbar>
           <IonCardTitle>{title || 'Movie Title'}</IonCardTitle>
           <IonCardSubtitle size="small">{runtime}</IonCardSubtitle>
           <IonButtons slot="end">
             <IonButton slot="end">
-              <IonIcon slot="icon-only" src={icons[platform.toLowerCase()]} alt={`${platform}`} />
+              <IonIcon slot="icon-only" src={icons[location.toLowerCase()]} alt={`${location}`} />
             </IonButton>
           </IonButtons>
         </IonToolbar>

@@ -36,7 +36,7 @@ import './theme/variables.css';
 const tabs = [
   { tab: 'movies', href: '/movies', icon: filmOutline, name: 'Movies', exact: true, component: Movies },
   { tab: 'restaurants', href: '/restaurants', icon: restaurantOutline, name: 'Restaurants', exact: true, component: Restaurants },
-  { tab: 'x', href: '/something', icon: triangle, name: 'X', exact: true, component: Something },
+  { tab: 'events', href: '/events', icon: triangle, name: 'Event', exact: true, component: Event },
 ];
 
 

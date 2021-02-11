@@ -44,7 +44,7 @@ function Deck({ cards }) {
   })
 
   return props.map(({ x, y, scale }, i) => {
-    const { title, description, categories, image, platform, runtime } = cards[i];
+    const { title, description, categories, image, location, runtime } = cards[i];
     return (
       <animated.div key={i} style={{ ...styles.bg, transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
         {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
@@ -54,7 +54,7 @@ function Deck({ cards }) {
             description={description}
             categories={categories}
             img={image}
-            platform={platform}
+            location={location}
             runtime={runtime} />
         </animated.div>
 

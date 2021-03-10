@@ -9,9 +9,9 @@ import {
   IonIcon,
   IonButton,
   IonButtons,
-  IonImg,
-  IonTitle, 
-  IonAvatar
+  // IonImg,
+  // IonTitle,
+  // IonAvatar
 } from '@ionic/react';
 import { triangle } from 'ionicons/icons';
 import React from 'react';

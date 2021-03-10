@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { restaurantOutline, filmOutline, triangle } from 'ionicons/icons';
-import { Movies, Restaurants, Something } from './pages';
+import { Movies, Restaurants, Events } from './pages';
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -36,7 +36,7 @@ import './theme/variables.css';
 const tabs = [
   { tab: 'movies', href: '/movies', icon: filmOutline, name: 'Movies', exact: true, component: Movies },
   { tab: 'restaurants', href: '/restaurants', icon: restaurantOutline, name: 'Restaurants', exact: true, component: Restaurants },
-  { tab: 'events', href: '/events', icon: triangle, name: 'Event', exact: true, component: Event },
+  { tab: 'events', href: '/events', icon: triangle, name: 'Events', exact: true, component: Events },
 ];
 
 

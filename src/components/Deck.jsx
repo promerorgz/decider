@@ -1,4 +1,4 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem } from '@ionic/react'
+//import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem } from '@ionic/react'
 import React, { useState } from 'react'
 import { animated, interpolate, useSprings } from 'react-spring'
 import { useDrag } from 'react-use-gesture'

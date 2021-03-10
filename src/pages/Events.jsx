@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Deck from '../components/Deck';
 import Page from '../containers/Page';
-// import inception from '../assets/inception.jpeg'
-// import grownups from '../assets/grownups.jpeg'
-// import creed2 from '../assets/creed2.jpg'
-// import endgame from '../assets/endgame.jpeg'
-// import jurassic from '../assets/Jurassic_Park_poster.jpg'
 import { db } from '../services/Firebase'
 
-const Movies = () => {
-  const [movieInfo, setMovieInfo] = useState([])
+const Events = () => {
+  const [eventInfo, setEventInfo] = useState([])
   useEffect(() => {
-    db.collection('Movies').get()
+    db.collection('Events').get()
       .then(snapshot => {
-        const MovieinfoConstant = []
+        const EventinfoConstant = []
         snapshot.forEach(doc => {
           const data = doc.data()
-          MovieinfoConstant.push(data)
+          EventinfoConstant.push(data)
         })
-        setMovieInfo(MovieinfoConstant)
+        setEventInfo(EventinfoConstant)
       })
   }, [])
-  console.log({ movieInfo })
+  console.log({ eventInfo })
 
   // mock of API return
   // const cards = [
@@ -33,16 +28,10 @@ const Movies = () => {
   // ];
 
   return (
-    <Page title="Movies" contentTitle="Find Movies">
-      <Deck cards={movieInfo} />
+    <Page title="Events" contentTitle="Find Events">
+      <Deck cards={eventInfo} />
     </Page>
   );
 };
-//export const auth = firebase.auth();
-//export const db = firebase.firestore();
 
-
-export default Movies;
-
-
-
+export default Events;

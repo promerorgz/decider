@@ -13,13 +13,16 @@ import {
   // IonTitle,
   // IonAvatar
 } from '@ionic/react';
-import { triangle } from 'ionicons/icons';
+import { triangle, pinOutline, boatOutline as water, musicalNoteOutline as festival, footballOutline as sports } from 'ionicons/icons';
 import React from 'react';
 import netflix from '../assets/iconfinder_64-netflix_4202092.svg'
 import hulu from '../assets/icons8-hulu.svg'
 import disney from '../assets/Disney+_logo.svg'
+import amazonprime from '../assets/Amazon_Prime-Logo.wine.svg'
+//import resturantsicon from '../assets/restaurant-cutlery-symbol-of-a-cross.svg'
 
-const ChoiceCard = ({ title, categories, description, img, location, runtime }) => {
+
+const ChoiceCard = ({ iconType, title, categories, description, img, location, runtime }) => {
 
   const styles = {
     card: {
@@ -41,14 +44,25 @@ const ChoiceCard = ({ title, categories, description, img, location, runtime }) 
     }
   }
 
-  const icons = {
-    netflix,
-    hulu,
-    disney,
-    undefined: ''
-  }
+  const getIcons = (location) => {
+    const movieIcons = {
+      netflix,
+      hulu,
+      disney,
+      amazonprime
+    };
 
-  console.log(icons[location.toLowerCase()])
+    const eventIcons = {
+      sports,
+      festival,
+      water,
+    };
+    return iconType === "resturants" ? pinOutline : iconType === "movies" ? movieIcons[location] : eventIcons[location];
+  };
+
+
+
+
   return (
     <IonCard style={styles.card}>
       <IonCardHeader>
@@ -57,7 +71,7 @@ const ChoiceCard = ({ title, categories, description, img, location, runtime }) 
           <IonCardSubtitle size="small">{runtime}</IonCardSubtitle>
           <IonButtons slot="end">
             <IonButton slot="end">
-              <IonIcon slot="icon-only" src={icons[location.toLowerCase()]} alt={`${location}`} />
+              <IonIcon slot="icon-only" src={getIcons(location)} icon={getIcons(location)} />
             </IonButton>
           </IonButtons>
         </IonToolbar>

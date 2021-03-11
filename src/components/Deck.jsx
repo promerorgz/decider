@@ -24,7 +24,7 @@ const styles = {
   }
 }
 
-function Deck({ cards }) {
+function Deck({ cards, iconType }) {
   const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({ ...to(i), from: from(i) })) // Create a bunch of springs using the helpers above
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
@@ -50,6 +50,7 @@ function Deck({ cards }) {
         {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
         <animated.div {...bind(i)} style={{ transform: interpolate([scale], trans) }}>
           <ChoiceCard
+            iconType={iconType}
             title={title}
             description={description}
             categories={categories}

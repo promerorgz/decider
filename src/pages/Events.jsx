@@ -29,7 +29,7 @@ const Events = () => {
 
   return (
     <Page title="Events" contentTitle="Find Events">
-      <Deck cards={eventInfo} />
+      <Deck cards={eventInfo} iconType={"events"} />
     </Page>
   );
 };

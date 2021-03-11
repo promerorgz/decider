@@ -34,7 +34,7 @@ const Movies = () => {
 
   return (
     <Page title="Movies" contentTitle="Find Movies">
-      <Deck cards={movieInfo} />
+      <Deck cards={movieInfo} iconType={"movies"} />
     </Page>
   );
 };

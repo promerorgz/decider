@@ -13,16 +13,17 @@ import {
   // IonTitle,
   // IonAvatar
 } from '@ionic/react';
-import { triangle, pinOutline, boatOutline as water, musicalNoteOutline as festival, footballOutline as sports } from 'ionicons/icons';
-import React from 'react';
+import { triangle, pinOutline, boatOutline as water, musicalNotesOutline as festival, footballOutline as sports } from 'ionicons/icons';
+import React, { useEffect } from 'react';
 import netflix from '../assets/iconfinder_64-netflix_4202092.svg'
 import hulu from '../assets/icons8-hulu.svg'
 import disney from '../assets/Disney+_logo.svg'
 import amazonprime from '../assets/Amazon_Prime-Logo.wine.svg'
+import { db } from '../services/Firebase';
 //import resturantsicon from '../assets/restaurant-cutlery-symbol-of-a-cross.svg'
 
 
-const ChoiceCard = ({ iconType, title, categories, description, img, location, runtime }) => {
+const ChoiceCard = ({ iconType, title, categories, description, img, location, runtime, direction, id }) => {
 
   const styles = {
     card: {
@@ -57,10 +58,14 @@ const ChoiceCard = ({ iconType, title, categories, description, img, location, r
       festival,
       water,
     };
-    return iconType === "resturants" ? pinOutline : iconType === "movies" ? movieIcons[location] : eventIcons[location];
+    return iconType === "resturants" ? pinOutline : iconType === "movies" ? movieIcons[location] : eventIcons[description];
   };
 
-
+  useEffect(() => {
+    if (direction === 1) {
+      db.collection('users').doc('/wwULkByE1rqi4CWN1l6O').update({ likes: { ...['likes'], [iconType]: [...[iconType], id.id] } }) //this.id when login works.
+    }
+  }, [direction])
 
 
   return (
